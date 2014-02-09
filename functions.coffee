@@ -7,10 +7,6 @@ DEBUG = true
 DEBUG = false
 
 container = "div.wordPage"
-word = $.trim $("#{ container } h1").text()
-
-if DEBUG
-  console.log "word: #{ word }"
 
 sites = [
   {
@@ -27,15 +23,16 @@ sites = [
   },
 ]
 
-links = ("<a target='_blank' class='ext-link' href='#{ site["link"] }#{ word }'>#{ site["name"] }</a>" for site in sites)
-
-if DEBUG
-  console.log links
-
 mangle = () ->
   # First remove existing elements then add them again.
   $("#{ container } a.ext-link").remove()
-  $(link).appendTo "div.tools" for link in links
+  word = $.trim $("#{ container } h1").text()
+  links = ("<a target='_blank' class='ext-link' href='#{ site["link"] }#{ word }'>#{ site["name"] }</a>" for site in sites)
+  if DEBUG
+    console.log "word: #{ word }"
+    console.log links
+
+  $(link).appendTo "#{ container } div.tools" for link in links
 
 DOMModificationHandler = ->
   # http://stackoverflow.com/q/11084819

@@ -6,19 +6,13 @@ Created by tux, Sat Feb  8 23:48:59 CST 2014
  */
 
 (function() {
-  var DEBUG, DOMModificationHandler, container, links, mangle, site, sites, word;
+  var DEBUG, DOMModificationHandler, container, mangle, sites;
 
   DEBUG = true;
 
   DEBUG = false;
 
   container = "div.wordPage";
-
-  word = $.trim($("" + container + " h1").text());
-
-  if (DEBUG) {
-    console.log("word: " + word);
-  }
 
   sites = [
     {
@@ -33,27 +27,27 @@ Created by tux, Sat Feb  8 23:48:59 CST 2014
     }
   ];
 
-  links = (function() {
-    var _i, _len, _results;
-    _results = [];
-    for (_i = 0, _len = sites.length; _i < _len; _i++) {
-      site = sites[_i];
-      _results.push("<a target='_blank' class='ext-link' href='" + site["link"] + word + "'>" + site["name"] + "</a>");
-    }
-    return _results;
-  })();
-
-  if (DEBUG) {
-    console.log(links);
-  }
-
   mangle = function() {
-    var link, _i, _len, _results;
+    var link, links, site, word, _i, _len, _results;
     $("" + container + " a.ext-link").remove();
+    word = $.trim($("" + container + " h1").text());
+    links = (function() {
+      var _i, _len, _results;
+      _results = [];
+      for (_i = 0, _len = sites.length; _i < _len; _i++) {
+        site = sites[_i];
+        _results.push("<a target='_blank' class='ext-link' href='" + site["link"] + word + "'>" + site["name"] + "</a>");
+      }
+      return _results;
+    })();
+    if (DEBUG) {
+      console.log("word: " + word);
+      console.log(links);
+    }
     _results = [];
     for (_i = 0, _len = links.length; _i < _len; _i++) {
       link = links[_i];
-      _results.push($(link).appendTo("div.tools"));
+      _results.push($(link).appendTo("" + container + " div.tools"));
     }
     return _results;
   };
