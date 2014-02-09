@@ -6,10 +6,8 @@ Created by tux, Sat Feb  8 23:48:59 CST 2014
 DEBUG = true
 DEBUG = false
 
-# FIXME: doesn't work when the page is changed via ajax.
-
 container = "div.wordPage"
-word = $("#{ container } h1").text()
+word = $.trim $("#{ container } h1").text()
 
 if DEBUG
   console.log "word: #{ word }"
@@ -35,6 +33,19 @@ if DEBUG
   console.log links
 
 mangle = () ->
+  # First remove existing elements then add them again.
+  $("#{ container } a.ext-link").remove()
   $(link).appendTo "div.tools" for link in links
 
-mangle()
+DOMModificationHandler = ->
+  # http://stackoverflow.com/q/11084819
+  $(this).unbind "DOMSubtreeModified"
+  setTimeout (->
+    mangle()
+    $(container).bind "DOMSubtreeModified", DOMModificationHandler
+  ), 4000
+$(container).bind "DOMSubtreeModified", DOMModificationHandler
+
+# This is for mangling the page after the page content is changed by ajax requests.
+# dbclick does not work.
+$(document).click mangle

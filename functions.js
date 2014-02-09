@@ -6,7 +6,7 @@ Created by tux, Sat Feb  8 23:48:59 CST 2014
  */
 
 (function() {
-  var DEBUG, container, links, mangle, site, sites, word;
+  var DEBUG, DOMModificationHandler, container, links, mangle, site, sites, word;
 
   DEBUG = true;
 
@@ -14,7 +14,7 @@ Created by tux, Sat Feb  8 23:48:59 CST 2014
 
   container = "div.wordPage";
 
-  word = $("" + container + " h1").text();
+  word = $.trim($("" + container + " h1").text());
 
   if (DEBUG) {
     console.log("word: " + word);
@@ -49,6 +49,7 @@ Created by tux, Sat Feb  8 23:48:59 CST 2014
 
   mangle = function() {
     var link, _i, _len, _results;
+    $("" + container + " a.ext-link").remove();
     _results = [];
     for (_i = 0, _len = links.length; _i < _len; _i++) {
       link = links[_i];
@@ -57,7 +58,17 @@ Created by tux, Sat Feb  8 23:48:59 CST 2014
     return _results;
   };
 
-  mangle();
+  DOMModificationHandler = function() {
+    $(this).unbind("DOMSubtreeModified");
+    return setTimeout((function() {
+      mangle();
+      return $(container).bind("DOMSubtreeModified", DOMModificationHandler);
+    }), 4000);
+  };
+
+  $(container).bind("DOMSubtreeModified", DOMModificationHandler);
+
+  $(document).click(mangle);
 
 }).call(this);
 
