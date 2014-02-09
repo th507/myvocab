@@ -1,0 +1,26 @@
+{
+    "manifest_version": 2,
+
+    "name": "More for Vocabulary.com",
+    "description": "This extension adds more links for vocabulary.com word page.",
+    "version": "1.0",
+    "icons": {
+        "48": "vocabulary.ico"
+    },
+
+    "content_scripts": [
+        {
+            "matches": ["http://www.vocabulary.com/*"],
+            "js": ["jquery-2.1.0.min.js", "functions.js"],
+            "css": ["style.css"],
+            "run_at": "document_end"
+        }
+    ],
+    "permissions": [
+        "http://www.vocabulary.com/*",
+        "activeTab"
+    ],
+    "web_accessible_resources": [
+        "functions.map"
+    ]
+}
