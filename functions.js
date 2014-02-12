@@ -24,6 +24,9 @@ Created by tux, Sat Feb  8 23:48:59 CST 2014
     }, {
       'name': 'Youdao',
       'link': 'http://dict.youdao.com/search?q='
+    }, {
+      'name': 'Google Images',
+      'link': 'http://images.google.com/images?q='
     }
   ];
 

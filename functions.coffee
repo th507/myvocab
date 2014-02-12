@@ -21,6 +21,10 @@ sites = [
     'name': 'Youdao',
     'link': 'http://dict.youdao.com/search?q=',
   },
+  {
+    'name': 'Google Images',
+    'link': 'http://images.google.com/images?q='
+  }
 ]
 
 mangle = () ->
