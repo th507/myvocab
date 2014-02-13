@@ -14,17 +14,17 @@ sites = [
     'link': 'http://dictionary.reference.com/browse/',
   },
   {
-    'name': 'Etymology',
-    'link': 'http://etymonline.com/index.php?search=',
-  },
-  {
     'name': 'Youdao',
     'link': 'http://dict.youdao.com/search?q=',
   },
   {
+    'name': 'Etymology',
+    'link': 'http://etymonline.com/index.php?search=',
+  },
+  {
     'name': 'Google Images',
     'link': 'http://images.google.com/images?q='
-  }
+  },
 ]
 
 mangle = () ->
