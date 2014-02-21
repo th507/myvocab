@@ -39,7 +39,7 @@ Created by tux, Sat Feb  8 23:48:59 CST 2014
       _results = [];
       for (_i = 0, _len = sites.length; _i < _len; _i++) {
         site = sites[_i];
-        _results.push("<a target='_blank' class='ext-link' href='" + site["link"] + word + "'>" + site["name"] + "</a>");
+        _results.push("<a target='_blank' class='ext-link tbutton' href='" + site["link"] + word + "'>" + site["name"] + "</a>");
       }
       return _results;
     })();

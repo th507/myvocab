@@ -31,10 +31,11 @@ mangle = () ->
   # First remove existing elements then add them again.
   $("#{ container } a.ext-link").remove()
   word = $.trim $("#{ container } h1").text()
-  links = ("<a target='_blank' class='ext-link' href='#{ site["link"] }#{ word }'>#{ site["name"] }</a>" for site in sites)
+  links = ("<a target='_blank' class='ext-link tbutton' href='#{ site["link"] }#{ word }'>#{ site["name"] }</a>" for site in sites)
   if DEBUG
     console.log "word: #{ word }"
     console.log links
+
 
   $(link).appendTo "#{ container } div.tools" for link in links
 
