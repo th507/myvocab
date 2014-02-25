@@ -28,16 +28,21 @@ sites = [
 ]
 
 mangle = () ->
-  # First remove existing elements then add them again.
-  $("#{ container } a.ext-link").remove()
   word = $.trim $("#{ container } h1").text()
+  site_tools = "#{ container } div.tools"
+  mydiv_content = '<div class="ext-link"></div>'
+  mydiv = "#{ container } div.ext-link"
+
+  # First remove added div then add it.
+  ($ mydiv).remove()
   links = ("<a target='_blank' class='ext-link tbutton' href='#{ site["link"] }#{ word }'>#{ site["name"] }</a>" for site in sites)
+
   if DEBUG
     console.log "word: #{ word }"
     console.log links
 
-
-  $(link).appendTo "#{ container } div.tools" for link in links
+  ($ site_tools).after mydiv_content
+  (($ mydiv).append link) for link in links
 
 DOMModificationHandler = ->
   # http://stackoverflow.com/q/11084819

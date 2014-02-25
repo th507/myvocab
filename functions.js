@@ -31,9 +31,12 @@ Created by tux, Sat Feb  8 23:48:59 CST 2014
   ];
 
   mangle = function() {
-    var link, links, site, word, _i, _len, _results;
-    $("" + container + " a.ext-link").remove();
+    var link, links, mydiv, mydiv_content, site, site_tools, word, _i, _len, _results;
     word = $.trim($("" + container + " h1").text());
+    site_tools = "" + container + " div.tools";
+    mydiv_content = '<div class="ext-link"></div>';
+    mydiv = "" + container + " div.ext-link";
+    ($(mydiv)).remove();
     links = (function() {
       var _i, _len, _results;
       _results = [];
@@ -47,10 +50,11 @@ Created by tux, Sat Feb  8 23:48:59 CST 2014
       console.log("word: " + word);
       console.log(links);
     }
+    ($(site_tools)).after(mydiv_content);
     _results = [];
     for (_i = 0, _len = links.length; _i < _len; _i++) {
       link = links[_i];
-      _results.push($(link).appendTo("" + container + " div.tools"));
+      _results.push(($(mydiv)).append(link));
     }
     return _results;
   };
