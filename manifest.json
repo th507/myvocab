@@ -21,6 +21,7 @@
         "activeTab"
     ],
     "web_accessible_resources": [
-        "functions.map"
+        "functions.map",
+        "etymonline.png", "dictionary.ico", "youdao.ico", "google.ico"
     ]
 }

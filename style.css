@@ -1,2 +1,15 @@
 a.ext-link {
+  background-size: 14px 14px;
+}
+a.dictionarycom {
+  background-image: url("chrome-extension://pkiojkhdnfnpaepinmlkaocmmadmmbli/dictionary.ico");
+}
+a.youdao {
+  background-image: url("chrome-extension://pkiojkhdnfnpaepinmlkaocmmadmmbli/youdao.ico");
+}
+a.etymology {
+  background-image: url("chrome-extension://pkiojkhdnfnpaepinmlkaocmmadmmbli/etymonline.png");
+}
+a.googleimages {
+  background-image: url("chrome-extension://pkiojkhdnfnpaepinmlkaocmmadmmbli/google.ico");
 }

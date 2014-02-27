@@ -17,16 +17,20 @@ Created by tux, Sat Feb  8 23:48:59 CST 2014
   sites = [
     {
       'name': 'Dictionary.com',
-      'link': 'http://dictionary.reference.com/browse/'
+      'link': 'http://dictionary.reference.com/browse/',
+      'class': 'dictionarycom'
     }, {
       'name': 'Youdao',
-      'link': 'http://dict.youdao.com/search?q='
+      'link': 'http://dict.youdao.com/search?q=',
+      'class': 'youdao'
     }, {
       'name': 'Etymology',
-      'link': 'http://etymonline.com/index.php?search='
+      'link': 'http://etymonline.com/index.php?search=',
+      'class': 'etymology'
     }, {
       'name': 'Google Images',
-      'link': 'http://images.google.com/images?q='
+      'link': 'http://images.google.com/images?q=',
+      'class': 'googleimages'
     }
   ];
 
@@ -42,7 +46,7 @@ Created by tux, Sat Feb  8 23:48:59 CST 2014
       _results = [];
       for (_i = 0, _len = sites.length; _i < _len; _i++) {
         site = sites[_i];
-        _results.push("<a target='_blank' class='ext-link tbutton' href='" + site["link"] + word + "'>" + site["name"] + "</a>");
+        _results.push("<a target='_blank' class='ext-link tbutton " + site["class"] + "' href='" + site["link"] + word + "'>" + site["name"] + "</a>");
       }
       return _results;
     })();

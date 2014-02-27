@@ -12,18 +12,22 @@ sites = [
   {
     'name': 'Dictionary.com',
     'link': 'http://dictionary.reference.com/browse/',
+    'class': 'dictionarycom'
   },
   {
     'name': 'Youdao',
     'link': 'http://dict.youdao.com/search?q=',
+    'class': 'youdao'
   },
   {
     'name': 'Etymology',
     'link': 'http://etymonline.com/index.php?search=',
+    'class': 'etymology'
   },
   {
     'name': 'Google Images',
-    'link': 'http://images.google.com/images?q='
+    'link': 'http://images.google.com/images?q=',
+    'class': 'googleimages'
   },
 ]
 
@@ -35,7 +39,7 @@ mangle = () ->
 
   # First remove added div then add it.
   ($ mydiv).remove()
-  links = ("<a target='_blank' class='ext-link tbutton' href='#{ site["link"] }#{ word }'>#{ site["name"] }</a>" for site in sites)
+  links = ("<a target='_blank' class='ext-link tbutton #{ site["class"]}' href='#{ site["link"] }#{ word }'>#{ site["name"] }</a>" for site in sites)
 
   if DEBUG
     console.log "word: #{ word }"
