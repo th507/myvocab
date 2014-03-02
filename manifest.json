@@ -5,7 +5,9 @@
     "description": "This extension adds more links for vocabulary.com word page.",
     "version": "1.0",
     "icons": {
-        "48": "vocabulary.ico"
+        "16": "vocabulary.ico",
+        "48": "vocabulary48.png",
+        "128": "vocabulary128.png"
     },
 
     "content_scripts": [
