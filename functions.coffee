@@ -26,7 +26,7 @@ sites = [
   },
   {
     'name': 'Google Images',
-    'link': 'http://images.google.com/images?q=',
+    'link': 'https://www.google.com/search?tbm=isch&q='
     'class': 'googleimages'
   },
 ]

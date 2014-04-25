@@ -29,7 +29,7 @@ Created by tux, Sat Feb  8 23:48:59 CST 2014
       'class': 'etymology'
     }, {
       'name': 'Google Images',
-      'link': 'http://images.google.com/images?q=',
+      'link': 'https://www.google.com/search?tbm=isch&q=',
       'class': 'googleimages'
     }
   ];
