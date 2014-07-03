@@ -13,6 +13,11 @@ Add links to other dictionary sites on word page.
 
 ![After](https://lh6.googleusercontent.com/-1SLF89TzsHs/U7U11wM6pEI/AAAAAAAASc4/La_yXFejOGY/w647-h195-no/after_tiny.png)
 
+
+# Usage
+
+Click on anywhere of the page to show the extra buttons.
+
 # Development
 
 Test to be done after every change:
