@@ -1,9 +1,10 @@
 {
     "manifest_version": 2,
 
-    "name": "More for Vocabulary.com",
-    "description": "This extension adds more links for vocabulary.com word page.",
-    "version": "1.0",
+    "name": "MyVocab",
+    "short_name": "Powerful vocabulary.com",
+    "description": "MyVocab adds more features to vocabulary.com.",
+    "version": "0.1.1",
     "icons": {
         "16": "vocabulary.ico",
         "48": "vocabulary48.png",
